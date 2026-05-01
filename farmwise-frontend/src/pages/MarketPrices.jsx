@@ -47,7 +47,7 @@ export default function MarketPrices() {
   const loadPrices = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('http://127.0.0.1:5000/api/market-prices');
+      const response = await fetch('https://farmwise-backend-odte.onrender.com/api/market-prices');
       
       if (response.ok) {
         const data = await response.json();

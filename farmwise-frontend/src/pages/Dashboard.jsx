@@ -37,7 +37,7 @@ const FarmWiseChatbot = () => {
     setInput('');
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/chat', {
+      const response = await fetch('https://farmwise-backend-odte.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input, language: language })
@@ -136,19 +136,19 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const weatherResponse = await fetch('http://127.0.0.1:5000/api/weather');
+        const weatherResponse = await fetch('https://farmwise-backend-odte.onrender.com/api/weather');
         if (weatherResponse.ok) {
            const weatherData = await weatherResponse.json();
            setWeather(weatherData);
         }
         
-        const cropsResponse = await fetch('http://127.0.0.1:5000/api/crops');
+        const cropsResponse = await fetch('https://farmwise-backend-odte.onrender.com/api/crops');
         if (cropsResponse.ok) {
            const cropsData = await cropsResponse.json();
            setCropRecommendations(cropsData);
         }
 
-        const marketResponse = await fetch('http://127.0.0.1:5000/api/market-prices');
+        const marketResponse = await fetch('https://farmwise-backend-odte.onrender.com/api/market-prices');
         if (marketResponse.ok) {
            const marketData = await marketResponse.json();
            setMarketPrices(marketData);

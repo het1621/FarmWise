@@ -49,7 +49,7 @@ export default function LandAnalysisPage() {
   // 1. Fetch data from Python!
   const loadLandData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/lands');
+      const response = await fetch('https://farmwise-backend-odte.onrender.com/api/lands');
       const data = await response.json();
       
       // Map Python's 'size_acres' to your UI's 'area' variable
@@ -84,13 +84,13 @@ export default function LandAnalysisPage() {
       };
 
       if (editingLand) {
-        await fetch(`http://127.0.0.1:5000/api/lands/${editingLand.id}`, {
+        await fetch(`https://farmwise-backend-odte.onrender.com/api/lands/${editingLand.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
       } else {
-        await fetch('http://127.0.0.1:5000/api/lands', {
+        await fetch('https://farmwise-backend-odte.onrender.com/api/lands', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -113,7 +113,7 @@ export default function LandAnalysisPage() {
     if (window.confirm("Are you sure you want to delete this farm plot? This cannot be undone.")) {
       setDeletingId(id); // <-- Turn on spinner for this specific card
       try {
-        const response = await fetch(`http://127.0.0.1:5000/api/lands/${id}`, {
+        const response = await fetch(`https://farmwise-backend-odte.onrender.com/api/lands/${id}`, {
           method: 'DELETE',
         });
         

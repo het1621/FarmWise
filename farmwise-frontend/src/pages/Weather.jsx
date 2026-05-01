@@ -47,7 +47,7 @@ export default function WeatherPage() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/weather?location=${city}`);
+      const response = await fetch(`https://farmwise-backend-odte.onrender.com/api/weather?location=${city}`);
       const data = await response.json();
       
       if (response.ok) {

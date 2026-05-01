@@ -33,8 +33,8 @@ export default function CropRecommendations() {
       setIsLoading(true);
       try {
         const [cropsRes, landsRes] = await Promise.all([
-          fetch('http://127.0.0.1:5000/api/crops'),
-          fetch('http://127.0.0.1:5000/api/lands')
+          fetch('https://farmwise-backend-odte.onrender.com/api/crops'),
+          fetch('https://farmwise-backend-odte.onrender.com/api/lands')
         ]);
 
         if (cropsRes.ok && landsRes.ok) {
