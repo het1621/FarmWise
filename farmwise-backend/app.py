@@ -5,6 +5,7 @@ import sqlite3
 import json
 import urllib3
 import google.generativeai as genai
+import os
 
 # Suppress the SSL warning for local development
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -260,8 +261,9 @@ def chat():
     full_lang = lang_map.get(lang, 'English')
     
     try:
-        # ---> PUT YOUR GOOGLE API KEY RIGHT HERE! <---
-        genai.configure(api_key="AIzaSyAOjwooF0Moy9H1v_STaG0SpbRwBZOubck")
+        # This tells Python to go get the secret key you saved in Render
+        api_key = os.getenv("GEMINI_API_KEY")
+        genai.configure(api_key=api_key)
         
         # Using the exact model that just worked in your test!
         model = genai.GenerativeModel('gemini-2.5-flash')
